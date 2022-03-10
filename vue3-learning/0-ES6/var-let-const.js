@@ -1,14 +1,10 @@
 if (true) {
-    var extenalVal = "extenalVal"
+    var externalval = 'externalval'
 }
 
-function domainTest(){
-    var funVal = "funVal";
-    console.log(extenalVal + "--------" + funVal);
+function domainTest() {
+    var funVal = 'funVal'
+    console.log(externalval + '------' + funVal)
 }
+
 domainTest()
-
-if(true){
-    console.log(extenalVal);
-    // console.log(funVal);
-}
