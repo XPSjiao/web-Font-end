@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root">
+        <!-- 用插值直接显示变量 -->
+        <p>{{firstName}} {{lastName}} </p>
+        <!-- 使用访问变量的属性 -->
+        <p>{{firstName.length}}</p>
+        <!-- 字符串的拼接 -->
+        <p>{{firstName + '______' + lastName}}</p>
+        <!-- 简单的算术运算 -->
+        <p>{{count*2}}</p>
+        <!-- 三目运算 -->
+        <p>{{firstName === 'Ethan'?'成立':'不成立'}}</p>
+        <!-- 调用自定义函数 -->
+        <p>{{customMethod(lastName)}}</p>
+        <!-- 调用JS函数 随机生成1-100的整数-->
+        <p>{{parseInt(100*Math.random())}}</p>
+        <!-- <p>{{age}}岁</p>  -->
+        
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            firstName: "Ethan",
+            lastName: "Jiao",
+            count:10,
+            age: '<strong>18</strong>',
+          };
+        },
+
+        methods: {
+            customMethod(str){
+                return str.split('').reverse().join(',')
+            }
+        },
+        
+      });
+
+      //vm 代表的就是 Vue 应用的根组件
+      const vm = app.mount("#root");
+    </script>
+  </body>
+</html>
