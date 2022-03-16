@@ -4,10 +4,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>5.4 v-model修饰符</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+        <!-- 输入完毕回车或失去焦点后显示  .lazy-->
+        <input v-model.lazy="name" type="text">
+        <h2>输入的姓名：{{name}},类型是：{{typeof name}}</h2>
+
+        <!-- 转换为数字类型  .number-->
+        <input v-model.number="age" type="text">
+        <h2>输入的年龄：{{age}},类型是：{{typeof age}}</h2>
+
+        <!-- 去掉无用空格.trim -->
+        <input v-model.lazy.trim="info" type="text">
+        <h2>输入的内容：{{info}},类型是：{{typeof info}}</h2>
+
+        <!-- multiple 可以一次上传多个文件 -->
+        <input type="file" multiple>
+    </div>
 
     <script src="https://unpkg.com/vue@next"></script>
 
@@ -17,7 +32,11 @@
       //mvvm实际模式： m -> model数据 ， v -> view 视图 ， vm -> viewModel 视图数据连接层
       let app = Vue.createApp({
         data() {
-          return {};
+          return {
+              name:"",
+              age:null,
+              info:"",
+          };
         },
         created() {},
         mounted() {},

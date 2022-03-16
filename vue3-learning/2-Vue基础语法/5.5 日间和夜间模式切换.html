@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绑定style属性</title>
+    <style>
+        .back {
+            /* background-color: black; */
+            width: 100%;
+            height: 100vw;
+            
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+
+        <div class="back" :style="{'background-color' : background}">
+            <button :style="{'color' : fontColor}" @click="change">一键换肤</button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        let app = Vue.createApp({
+            data() {
+                return {
+                    fontSize: 20,
+                    background: 'black',
+                    fontColor: 'white'
+                }
+            },
+            created() {
+
+            },
+            mounted() {
+
+            },
+            methods: {
+                addFontSize() {
+                    this.fontSize++
+                },
+                change() {
+                    this.background = this.background === 'black' ? 'white' : 'black'
+                    this.fontColor = this.fontColor === 'white' ? 'black' : 'white'
+                }
+
+            },
+        })
+        let vm = app.mount('#app');
+    </script>
+</body>
+
+<html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue3-todolist动态绑定效果实现</title>
+    <!-- 使用动态样式绑定，结合todolist的模板，实现如下效果
+1. 对初始数据根据任务是否结束，渲染不同的样式效果（进行中、已完成）
+2. 每行数据可以点击切换状态 -->
+</head>
+<body>
+    <div id="app">
+
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    inputValue: '',
+                    list: [{
+                        title:"aaa",
+                        finshed:false,
+                    },
+                    {
+                        title:"bbb",
+                        finshed:true,
+                    }
+                ],
+                isBlue:true,
+                isRed:false, 
+            };
+            },
+            methods: {
+                handleAddItem() {
+                    this.list.push(this.inputValue);
+                    this.inputValue = "";
+                }
+                changeColor(){
+                    this.isBlue = !this.isBlue;
+                    this.isRed = !this.isRed;
+                }
+            },
+            template: `
+            <div>
+                <input v-model="inputValue">
+                <button v-on:click="handleAddItem">增加</button>
+                <ul>
+                    <li v-for="(item,index) of list" >{{item.title}}</li><button @click = "changeColor">切换</button>
+                </ul>
+            </div>
+            `
+        }).mount('#app');
+    </script>
+</body>
+</html>

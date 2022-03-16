@@ -7,14 +7,11 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="root"></div>
 
     <script src="https://unpkg.com/vue@next"></script>
 
     <script>
-      //createApp 表示创建一个Vue应用，存储到app变量中
-      //传入的参数表示，这个应用最外层的组件如何展示
-      //mvvm实际模式： m -> model数据 ， v -> view 视图 ， vm -> viewModel 视图数据连接层
       let app = Vue.createApp({
         data() {
           return {};
@@ -25,7 +22,7 @@
       });
 
       //vm 代表的就是 Vue 应用的根组件
-      let vm = app.mount("#app");
+      let vm = app.mount("#root");
     </script>
   </body>
 </html>

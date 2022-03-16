@@ -4,10 +4,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>绑定style属性</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <h2 :style="{'color':'red', 'font-size' : fontSize + 'px'}">
+        绑定style属性 红色h2
+      </h2>
+      <button @click="addFontSize">增大字体</button>
+    </div>
 
     <script src="https://unpkg.com/vue@next"></script>
 
@@ -17,11 +22,15 @@
       //mvvm实际模式： m -> model数据 ， v -> view 视图 ， vm -> viewModel 视图数据连接层
       let app = Vue.createApp({
         data() {
-          return {};
+          return {
+            fontSize: 20,
+          };
         },
-        created() {},
-        mounted() {},
-        methods: {},
+        methods: {
+          addFontSize() {
+            this.fontSize++;
+          },
+        },
       });
 
       //vm 代表的就是 Vue 应用的根组件
